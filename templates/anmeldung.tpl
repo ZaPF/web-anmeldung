@@ -23,13 +23,15 @@
   <input type="text" id="university_alt" name="university_alt">
 
   <label>Ernährung:</label>
-  <select id="food" name="food">
-    <option value="p-c" selected> bitte wählen </option> 
-    <option value="n-i-l"> - nicht in Liste - bitte bei Sonstiges angeben - </option> 
-    <option value="fleisch">Ich esse Fleisch!</option>
-    <option value="vegi">Ich bin eingefleischter Vegetarier!</option>
-    <option value="nix">Ich esse nix!</option>
-  </select>
+  <label class="radio">
+    <input type="radio" name="food" id="fleisch" value="fleisch" checked>
+    Ich esse auch Fleisch.
+  </label>
+  <label class="radio">
+    <input type="radio" name="food" id="vegi" value="vegi">
+    Ich bin Vegetarier.
+  </label>
+  <br />
 
   <label>Arbeitskreis Wünsche:</label>
   <input type="text" id="arbeitskreise" name="arbeitskreise">

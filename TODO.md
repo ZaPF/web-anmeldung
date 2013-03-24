@@ -16,6 +16,5 @@
   Ist jetzt großteils geschehen.
 * Soll ein automatisches Limit für die Teilnehmer-Zahl eingebaut werden? Wenn ja, wo? 200?
 * Soll noch mehr Hinweis-Text auf die Seite? Etwa zu Teilnehmergebühren o.ä.?
-* Den Text "eingefleischter Vegetarier" werde ich mal noch entschärfen, sonst gibt es von Peta auf den Deckel.
 * Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer; Teilnehmer je Universität;  oder  Vornamen, nach Universität gegliedert?
 
