@@ -41,3 +41,6 @@ if __name__ == "__main__":
     print "# ID, Vorname, Nachname, Bestaetigt, E-Mail, Anmeldezeit"
     print pp(d.items())
     print "\n\n"
+
+    for item in d.items():
+        print json.dumps(item, sort_keys=True, indent=4)

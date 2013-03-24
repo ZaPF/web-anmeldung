@@ -30,7 +30,7 @@ def confirm(id):
     try:
         reg = d[id]
     except:
-        return template('warning', message_title="Fehler", message="Registrierung ist uns nicht bekannt.")
+        return template('warning', message_title="Fehler", message="Deine Anmeldung ist uns nicht bekannt. Bitte kontaktiere uns, wenn du dir sicher bist, dass der Bestaetigungs-Link funktionieren sollte.")
     if reg['confirmed']:
         return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Die Anmeldung wurde bereits zuvor bestaetigt.")
     else:
@@ -46,6 +46,7 @@ def callback(path):
 def login_submit():
     reg = dict() # we store the registrant's details in a dictionary
     reg['time'] = unixtime()
+    reg['ip'] = request.remote_route[0]
     reg['first_name'] = request.forms.get('first_name')
     reg['last_name'] = request.forms.get('last_name')
     reg['email'] = request.forms.get('email_addr')
