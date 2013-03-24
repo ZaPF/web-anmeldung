@@ -5,3 +5,17 @@
 * Check E-Mail Adresse
 * Test, was passiert, wenn E-Mail unzustellbar
 * Check, ob entweder Uni oder Uni_alt ausgewaehlt
+* Auftrennen von Startseite und Anmeldungsseite?
+* Soll eine Mail über Neuanmeldungen automatisch auch an ein Mail-Konto von euch gehen?
+* Sollen Teilnehmer ihre Daten auch bearbeiten können?  
+  Antwort: Nein, Mail genügt.
+* Wie stellst du dir das mit den Teilzeitteilnehmern vor? Vielleicht reicht für so was auch einfach ein textueller Hinweis, dass die Leute das unter sonstiges reinschreiben sollen? Alte Säcke etwa…
+* Wie ist der Umfang der Bestätigungs-Mails? Sollen da die Angaben auch alle noch mal rein?  
+  Antwort: Ja, Daten sollen rein.
+* Es muss noch die Unterstützung von Umlauten in den Feldern getestet werden.  
+  Ist jetzt großteils geschehen.
+* Soll ein automatisches Limit für die Teilnehmer-Zahl eingebaut werden? Wenn ja, wo? 200?
+* Soll noch mehr Hinweis-Text auf die Seite? Etwa zu Teilnehmergebühren o.ä.?
+* Den Text "eingefleischter Vegetarier" werde ich mal noch entschärfen, sonst gibt es von Peta auf den Deckel.
+* Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer; Teilnehmer je Universität;  oder  Vornamen, nach Universität gegliedert?
+
