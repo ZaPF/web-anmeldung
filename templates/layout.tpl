@@ -21,7 +21,7 @@
       /* Custom container */
       .container-narrow {
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 720px;
       }
       .container-narrow > hr {
         margin: 30px 0;

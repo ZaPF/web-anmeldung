@@ -3,6 +3,7 @@
 from bottle import route, run, static_file, post, get, request, template, TEMPLATE_PATH, response
 from mailer import confirmation_mail
 import filedict
+import json
 import time
 import string
 from random import choice
@@ -50,6 +51,11 @@ def login_submit():
     reg['first_name'] = request.forms.get('first_name')
     reg['last_name'] = request.forms.get('last_name')
     reg['email'] = request.forms.get('email_addr')
+    reg['university'] = request.forms.get('university')
+    reg['university_alt'] = request.forms.get('university_alt')
+    reg['food'] = request.forms.get('food')
+    reg['arbeitskreise'] = request.forms.get('arbeitskreise')
+    reg['notes'] = request.forms.get('notes')
     if check_registrant(reg):
         reg['id'] = create_id()
         reg['confirmed'] = False
@@ -59,10 +65,14 @@ def login_submit():
     else:
         return template('warning', message_title="Fehler", message="Ein Fehler ist aufgetreten.")
 
+@get('/liste/json')
+def dump_json():
+    response.headers['Content-Type'] = 'text/plain'
+    return json.dumps(list(d.items()), sort_keys=True, indent=2)
+
 @get('/liste/csv')
 def dump_csv():
-    pp_string = pp(d.items())
     response.headers['Content-Type'] = 'text/plain'
-    return pp_string
+    return pp(d.items())
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
