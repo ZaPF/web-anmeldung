@@ -54,9 +54,9 @@ def login_submit():
         reg['confirmed'] = False
         d[reg['id']] = reg
         confirmation_mail(reg)
-        return "<p>Registrierung abgeschlossen. Bitte E-Mails checken!</p>"
+        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Registrierung abgeschlossen. Bitte E-Mails checken!")
     else:
-        return "<p>Es ist ein Fehler aufgetreten.</p>"
+        return template('warning', message_title="Fehler", message="Ein Fehler ist aufgetreten.")
 
 @get('/liste/csv')
 def dump_csv():
