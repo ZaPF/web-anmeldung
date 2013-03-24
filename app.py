@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from bottle import route, run, static_file, post, get, request, template, TEMPLATE_PATH, response
 from mailer import confirmation_mail
@@ -31,13 +32,13 @@ def confirm(id):
     try:
         reg = d[id]
     except:
-        return template('warning', message_title="Fehler", message="Deine Anmeldung ist uns nicht bekannt. Bitte kontaktiere uns, wenn du dir sicher bist, dass der Bestaetigungs-Link funktionieren sollte.")
+        return template('warning', message_title="Fehler", message="Deine Anmeldung ist uns nicht bekannt. Bitte kontaktiere uns, wenn du dir sicher bist, dass der Bestätigungs-Link funktionieren sollte.")
     if reg['confirmed']:
-        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Die Anmeldung wurde bereits zuvor bestaetigt.")
+        return template('info', message_title="Anmeldungs-Bestätigung", alert="Alles in Ordnung", message="Die Anmeldung wurde bereits zuvor bestätigt.")
     else:
         reg['confirmed'] = unixtime()
         d[id] = reg
-        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Die Anmeldung wurde erfolgreich bestaetigt.")
+        return template('info', message_title="Anmeldungs-Bestätigung", alert="Danke.", message="Deine Anmeldung wurde erfolgreich bestätigt.")
 
 @route('/static/<path:path>')
 def callback(path):
@@ -61,7 +62,7 @@ def login_submit():
         reg['confirmed'] = False
         d[reg['id']] = reg
         confirmation_mail(reg)
-        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Registrierung abgeschlossen. Bitte E-Mails checken!")
+        return template('info', message_title="Anmeldungs-Bestätigung", alert="Anmeldung erfolgt.", message="Jetzt bitte E-Mails checken und die Anmeldung bestätigen!")
     else:
         return template('warning', message_title="Fehler", message="Ein Fehler ist aufgetreten.")
 

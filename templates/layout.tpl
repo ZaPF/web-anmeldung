@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{title or 'Anmeldung fuer ZaPF'}}</title>
+    <title>{{title or 'Anmeldung für ZaPF'}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -75,8 +75,8 @@
       <hr>
 
       <div class="jumbotron">
-        <h1>Jetzt f&uuml;r ZaPF in Jena anmelden!</h1>
-        <p class="lead">Auf dieser Seite ist ab sofort die Anmeldung zu der Zusammenkunft aller Physik-Fachschaften im Sommersemester 2013 in Jena m&ouml;glich.</p>
+        <h1>Jetzt für ZaPF in Jena anmelden!</h1>
+        <p class="lead">Auf dieser Seite ist ab sofort die Anmeldung zu der Zusammenkunft aller Physik-Fachschaften im Sommersemester 2013 in Jena möglich.</p>
       </div>
 
       <hr>

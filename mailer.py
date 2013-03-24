@@ -1,4 +1,5 @@
-#!python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import smtplib
 from email.mime.text import MIMEText
@@ -11,19 +12,19 @@ confirmation_url_base = u'http://anmeldung.zapfev.de/confirm/%s'
 
 def confirmation_mail(reg):
 
-    text  = "Hallo %s %s,\n" % (reg['first_name'], reg['last_name'])
-    text += "\n"
-    text += "soeben hast du dich fuer die ZaPF angemeldet.\n"
-    text += "\n"
-    text += "Bitte bestaetige deine Anmeldung durch Aufrufen des folgenden Links:\n"
-    text += "\n"
-    text += "%s\n" % (confirmation_url_base % reg['id'])
-    text += "\n"
-    text += "Vielen Dank\n"
-    text += "Dein Organisatoren-Team\n"
-    text += "\n"
-    text += "______________________________\n"
-    text += "http://www.zapf.uni-jena.de\n"
+    text  = u"Hallo %s %s,\n" % (reg['first_name'], reg['last_name'])
+    text += u"\n"
+    text += u"soeben hast du dich für die ZaPF angemeldet.\n"
+    text += u"\n"
+    text += u"Bitte bestätige deine Anmeldung durch Aufrufen des folgenden Links:\n"
+    text += u"\n"
+    text += u"%s\n" % (confirmation_url_base % reg['id'])
+    text += u"\n"
+    text += u"Vielen Dank\n"
+    text += u"Dein Organisatoren-Team\n"
+    text += u"\n"
+    text += u"______________________________\n"
+    text += u"http://www.zapf.uni-jena.de\n"
     
     # Create a text/plain message
     msg = MIMEText(text)

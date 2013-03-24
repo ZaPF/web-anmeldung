@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 print "Don't run this file by itself."
 print "Copy and paste the snippets from here and run them..."
