@@ -1,4 +1,4 @@
-<h4><span class="badge badge-important">!</span> {{message_title or "Achtung"}}</h4>
+<h4> <span class="label label-important">! {{message_title or "Achtung"}}</span> </h4>
 
 <div class="alert alert-error">
 {{message}}

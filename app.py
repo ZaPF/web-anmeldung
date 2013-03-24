@@ -30,13 +30,13 @@ def confirm(id):
     try:
         reg = d[id]
     except:
-        return "<p>Diese Registrierung ist uns nicht bekannt.</p>"
+        return template('warning', message_title="Fehler", message="Registrierung ist uns nicht bekannt.")
     if reg['confirmed']:
-        return "<p>Die Anmeldung wurde bereits zuvor bestaetigt.</p>"
+        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Die Anmeldung wurde bereits zuvor bestaetigt.")
     else:
         reg['confirmed'] = unixtime()
         d[id] = reg
-        return "<p>Die Anmeldung wurde bestaetigt.</p>"
+        return template('info', message_title="Anmeldungs-Bestaetigung", alert="In Ordnung", message="Die Anmeldung wurde erfolgreich bestaetigt.")
 
 @route('/static/<path:path>')
 def callback(path):
