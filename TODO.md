@@ -23,3 +23,5 @@
 * Email reply-to auf die FSR Jena Adresse setzen
 * Emails loggen in extra DB
 * E-Mails: Werte aus Dropdown-Liste durch Text ersetzen (Funktion in app.py einbauen, und die Listen im Template durch Schleifen umsetzen.
+* Fehler Log für die auf der Website auftretenden Fehler organisieren
+* Extra-Liste: Personen mit Sonderwünschen
