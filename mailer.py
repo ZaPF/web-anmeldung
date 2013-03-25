@@ -19,6 +19,18 @@ def confirmation_mail(reg):
     text += u"\n"
     text += u"%s\n" % (confirmation_url_base % reg['id'])
     text += u"\n"
+    text += u"Du hast die folgenden Angaben bei der Anmeldung gemacht:\n"
+    text += u"\n"
+    text += u"Vorname: {0}\n".format(reg['first_name'])
+    text += u"Nachname: {0}\n".format(reg['last_name'])
+    text += u"E-Mail: {0}\n".format(reg['email'])
+    text += u"Universität: {0}\n".format(reg['university'])
+    text += u"Universität (alternativ): {0}\n".format(reg['university_alt'])
+    text += u"Ernährung: {0}\n".format(reg['food'])
+    text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'])
+    text += u"Sonstiges:\n"
+    text += u"{0}\n".format(reg['notes'])
+    text += u"\n"
     text += u"Vielen Dank\n"
     text += u"Dein Organisatoren-Team\n"
     text += u"\n"
@@ -35,10 +47,6 @@ def confirmation_mail(reg):
     
     server = smtplib.SMTP('fachschaft.physik.uni-frankfurt.de')
     server.set_debuglevel(1)
-
-    print msg.as_string()
-    print msg['From']
-    print msg['To']
 
     server.sendmail(me_mail, [reg['email']], msg.as_string())
     server.quit()
