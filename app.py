@@ -49,14 +49,14 @@ def login_submit():
     reg = dict() # we store the registrant's details in a dictionary
     reg['time'] = unixtime()
     reg['ip'] = request.remote_route[0]
-    reg['first_name'] = request.forms.get('first_name')
-    reg['last_name'] = request.forms.get('last_name')
-    reg['email'] = request.forms.get('email_addr')
-    reg['university'] = request.forms.get('university')
-    reg['university_alt'] = request.forms.get('university_alt')
-    reg['food'] = request.forms.get('food')
-    reg['arbeitskreise'] = request.forms.get('arbeitskreise')
-    reg['notes'] = request.forms.get('notes')
+    reg['first_name'] = request.forms.get('first_name').decode('utf-8')
+    reg['last_name'] = request.forms.get('last_name').decode('utf-8')
+    reg['email'] = request.forms.get('email_addr').decode('utf-8')
+    reg['university'] = request.forms.get('university').decode('utf-8')
+    reg['university_alt'] = request.forms.get('university_alt').decode('utf-8')
+    reg['food'] = request.forms.get('food').decode('ascii')
+    reg['arbeitskreise'] = request.forms.get('arbeitskreise').decode('utf-8')
+    reg['notes'] = request.forms.get('notes').decode('utf-8')
     if check_registrant(reg):
         reg['id'] = create_id()
         reg['confirmed'] = False

@@ -11,7 +11,7 @@ me_name = u'ZaPF'
 confirmation_url_base = u'http://anmeldung.zapfev.de/confirm/%s'
 
 def confirmation_mail(reg):
-    text  = u"Hallo {0} {1},\n".format(reg['first_name'].decode('utf-8'), reg['last_name'].decode('utf-8'))
+    text  = u"Hallo {0} {1},\n".format(reg['first_name'], reg['last_name'])
     text += u"\n"
     text += u"soeben hast du dich für die ZaPF angemeldet.\n"
     text += u"\n"
