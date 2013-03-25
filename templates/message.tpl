@@ -2,4 +2,4 @@
 
 {{message}}
 
-%rebase layout title=None
+%rebase layout title=None, additional_text=None

@@ -1,3 +1,4 @@
+<div id="anmeldeformular">
 <h4>Anmeldeformular</h4>
 
 <form method="POST">
@@ -43,5 +44,6 @@
 </form>
 
 <p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>
+</div>
 
-%rebase layout title=None
+%rebase layout title=None, additional_text=None

@@ -26,6 +26,11 @@
       .container-narrow > hr {
         margin: 30px 0;
       }
+      #anmeldeformular {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       /* Main marketing message and sign up button */
       .jumbotron {
@@ -75,7 +80,7 @@
       <hr>
 
       <div class="jumbotron">
-        <h1>Jetzt für ZaPF in Jena anmelden!</h1>
+        <h1>Jetzt für die ZaPF in Jena anmelden!</h1>
         <p class="lead">Auf dieser Seite ist ab sofort die Anmeldung zu der Zusammenkunft aller Physik-Fachschaften im Sommersemester 2013 in Jena möglich.</p>
       </div>
 
@@ -86,6 +91,7 @@
           <center>
             <img src="/static/images/zapf_tu-blau_klein.png" alt="ZaPF e.V. Logo" />
           </center>
+          {{additional_text or ""}}
         </div>
 
         <div class="span6">
