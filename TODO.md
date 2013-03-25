@@ -17,4 +17,6 @@
 * Soll ein automatisches Limit für die Teilnehmer-Zahl eingebaut werden? Wenn ja, wo? 200?
 * Soll noch mehr Hinweis-Text auf die Seite? Etwa zu Teilnehmergebühren o.ä.?
 * Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer; Teilnehmer je Universität;  oder  Vornamen, nach Universität gegliedert?
-
+* Struktur aufspalten:
+  * Header auf den Folgeseiten nicht zeigen
+  * Weiterleiten bei Anmelde-Erfolg auf andere Seite (mit Button weitere Teilnehmer anmelden)
