@@ -6,14 +6,14 @@ import json
 
 def pp(items):
     fields = ['id', 'first_name', 'last_name', 'confirmed', 'email', 'time']
-    pp_string = "# " + ", ".join(fields) + "\n"
+    pp_string = u"# " + u", ".join(fields) + u"\n"
     for item in items:
         key, item = item
         try:
             entry = []
             for field in fields:
-                entry.append("%s" % item[field])
-            pp_string += ", ".join(entry) + '\n'
+                entry.append(unicode(item[field]))
+            pp_string += u", ".join(entry) + u'\n'
         except:
             raise
             #print "# Invalid entry with id " + key
@@ -31,17 +31,17 @@ def clean(dic):
             item['confirmed']
             item['email']
         except:
-            print "missing field for entry with id " + key
-            print "# " + json.dumps(item)
+            print u"missing field for entry with id " + key
+            print u"# " + json.dumps(item)
             del dic[key]
 
 
 if __name__ == "__main__":
     d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
-    print "\n\n"
-    print "# ID, Vorname, Nachname, Bestaetigt, E-Mail, Anmeldezeit"
+    print u"\n\n"
+    print u"# ID, Vorname, Nachname, Bestaetigt, E-Mail, Anmeldezeit"
     print pp(d.items())
-    print "\n\n"
+    print u"\n\n"
 
     for item in d.items():
         print json.dumps(item, sort_keys=True, indent=4)

@@ -68,12 +68,12 @@ def login_submit():
 
 @get('/liste/json')
 def dump_json():
-    response.headers['Content-Type'] = 'text/plain'
+    response.headers['Content-Type'] = 'text/plain; charset=UTF8'
     return json.dumps(list(d.items()), sort_keys=True, indent=2)
 
 @get('/liste/csv')
 def dump_csv():
-    response.headers['Content-Type'] = 'text/plain'
+    response.headers['Content-Type'] = 'text/plain; charset=UTF8'
     return pp(d.items())
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
