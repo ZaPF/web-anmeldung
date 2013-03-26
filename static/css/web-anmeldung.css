@@ -38,3 +38,7 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
+.jumbotron {
+  margin-bottom: -20px;
+}

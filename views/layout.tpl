@@ -46,8 +46,6 @@
         <h1>Jetzt für die ZaPF in Jena anmelden!</h1>
         <p class="lead">Auf dieser Seite ist ab sofort die Anmeldung zu der Zusammenkunft aller Physik-Fachschaften im Sommersemester 2013 in Jena möglich.</p>
       </div>
-
-      <hr>
       %end
 
       <div class="row-fluid marketing">
