@@ -46,4 +46,4 @@
 <p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>
 </div>
 
-%rebase layout title=None, additional_text=None
+%rebase layout title=None, additional_text=None, home=False, anmelden=True

@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+Unis = dict()
+Unis['FFM'] = u'Frankfurt am Main'
+Unis['J'] = u'Uni Jena'
+Unis['DD'] = u'TU Dresden'
+Unis['DA'] = u'TU Darmstadt'
+Unis['LMU'] = u'LMU München'
+Unis['TUM'] = u'TU München'
+#Unis[''] = u'Karlsruhe'
+#Unis[''] = u'Aachen'
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#Unis[''] = u''
+#
+#Unis[''] = u''
+
+

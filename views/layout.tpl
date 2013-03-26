@@ -13,48 +13,9 @@
     <!-- Le styles -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 720px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-      #anmeldeformular {
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
     </style>
     <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/static/css/web-anmeldung.css" rel="stylesheet">
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/bootstrap/ico/apple-touch-icon-144-precomposed.png">
@@ -70,21 +31,24 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="http://www.zapf.uni-jena.de/">Mehr erfahren</a></li>
-          <li><a href="http://www.fsr.uni-jena.de/index.php?option=com_contact&view=contact&id=4&Itemid=65&lang=de">Kontakt</a></li>
+          <li {{!'class="active"' if home else ''}}><a href="/">Home</a></li>
+          <li {{!'class="active"' if anmelden else ''}}><a href="/anmelden">Jetzt anmelden</a></li>
+          <li><a href="http://www.zapf.uni-jena.de/" target="_blank">Mehr erfahren</a></li>
+          <li><a href="http://www.fsr.uni-jena.de/index.php?option=com_contact&view=contact&id=4&Itemid=65&lang=de" target="_blank">Kontakt</a></li>
         </ul>
         <h3 class="muted">ZaPF SoSe 2013</h3>
       </div>
 
       <hr>
 
+      %if home:
       <div class="jumbotron">
         <h1>Jetzt für die ZaPF in Jena anmelden!</h1>
         <p class="lead">Auf dieser Seite ist ab sofort die Anmeldung zu der Zusammenkunft aller Physik-Fachschaften im Sommersemester 2013 in Jena möglich.</p>
       </div>
 
       <hr>
+      %end
 
       <div class="row-fluid marketing">
         <div class="span6">

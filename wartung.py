@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import route, run, redirect, template, TEMPLATE_PATH, static_file
-TEMPLATE_PATH.insert(0,'./templates/')
+from bottle import route, run, redirect, template, static_file
 
 @route('/static/<path:path>')
 def callback(path):

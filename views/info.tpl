@@ -5,4 +5,4 @@
 {{message}}
 </div>
 
-%rebase layout title=None, additional_text=None
+%rebase layout title=None, additional_text=None, home=False, anmelden=False

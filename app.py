@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import route, run, static_file, post, get, request, template, TEMPLATE_PATH, response
+from bottle import route, run, static_file, post, get, request, template, response, redirect
 from mailer import confirmation_mail
 import filedict
 import json
@@ -11,7 +11,6 @@ from random import choice
 from datadump import pp
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
-TEMPLATE_PATH.insert(0,'./templates/')
 
 def check_registrant(reg):
     #return validate_email(reg['email'])
@@ -25,32 +24,19 @@ def unixtime():
 
 @get('/')
 def signup():
-    return template('anmeldung')
+    return template('home')
 
-@get('/confirm/<id:re:[a-zA-Z0-9]+>')
-def confirm(id):
-    try:
-        reg = d[id]
-    except:
-        return template('warning', message_title="Fehler", message="Deine Anmeldung ist uns nicht bekannt. Bitte kontaktiere uns, wenn du dir sicher bist, dass der Bestätigungs-Link funktionieren sollte.")
-    if reg['confirmed']:
-        return template('info', message_title="Anmeldungs-Bestätigung", alert="Alles in Ordnung", message="Die Anmeldung wurde bereits zuvor bestätigt.")
-    else:
-        reg['confirmed'] = unixtime()
-        d[id] = reg
-        return template('info', message_title="Anmeldungs-Bestätigung", alert="Danke.", message="Deine Anmeldung wurde erfolgreich bestätigt.")
+@get('/anmelden')
+def signup():
+    return template('anmelden')
 
-@route('/static/<path:path>')
-def callback(path):
-    return static_file(path, root='./static')
-
-@post('/')
+@post('/anmelden')
 def login_submit():
     reg = dict() # we store the registrant's details in a dictionary
     reg['time'] = unixtime()
     reg['ip'] = request.remote_route[0]
-    reg['first_name'] = request.forms.get('first_name').decode('utf-8')
-    reg['last_name'] = request.forms.get('last_name').decode('utf-8')
+    reg['first_name'] = request.forms.get('first_name').decode('utf-8').title()
+    reg['last_name'] = request.forms.get('last_name').decode('utf-8').title()
     reg['email'] = request.forms.get('email_addr').decode('utf-8')
     reg['university'] = request.forms.get('university').decode('utf-8')
     reg['university_alt'] = request.forms.get('university_alt').decode('utf-8')
@@ -62,9 +48,35 @@ def login_submit():
         reg['confirmed'] = False
         d[reg['id']] = reg
         confirmation_mail(reg)
-        return template('info', message_title="Anmeldungs-Bestätigung", alert="Anmeldung erfolgt.", message="Jetzt bitte E-Mails checken und die Anmeldung bestätigen!")
+        redirect('/anmeldung/erfolgreich')
     else:
         return template('warning', message_title="Fehler", message="Ein Fehler ist aufgetreten.")
+
+@get('/anmeldung/erfolgreich')
+def success():
+    return template('info', message_title="Anmeldungs-Bestätigung", alert="Anmeldung erfolgt.", message="Jetzt bitte E-Mails checken und die Anmeldung bestätigen!")
+
+@get('/anmeldung/unbekannt')
+def unknown_id():
+    return template('warning', message_title="Fehler", message="Deine Anmeldung ist uns nicht bekannt. Bitte kontaktiere uns, wenn du dir sicher bist, dass der Bestätigungs-Link funktionieren sollte.")
+
+@get('/confirm/<id:re:[a-zA-Z0-9]+>')
+def confirm(id):
+    try:
+        reg = d[id]
+    except:
+        redirect('/anmeldung/unbekannt')
+    if reg['confirmed']:
+        return template('info', message_title="Anmeldungs-Bestätigung", alert="Alles in Ordnung", message="Die Anmeldung wurde bereits zuvor bestätigt.")
+    else:
+        reg['confirmed'] = unixtime()
+        d[id] = reg
+        return template('info', message_title="Anmeldungs-Bestätigung", alert="Danke.", message="Deine Anmeldung wurde erfolgreich bestätigt.")
+
+@route('/static/<path:path>')
+def callback(path):
+    return static_file(path, root='./static')
+
 
 @get('/liste/json')
 def dump_json():
