@@ -13,7 +13,7 @@ def pp(items):
             entry = []
             for field in fields:
                 entry.append(unicode(item[field]))
-            pp_string += u", ".join(entry).replace('\n','') + u'\n'
+            pp_string += u", ".join(entry).replace(u',', u' ').replace(u'\n', u' ') + u'\n'
         except:
             raise
             #print "# Invalid entry with id " + key
