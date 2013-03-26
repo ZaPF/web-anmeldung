@@ -10,16 +10,19 @@ def pp(items):
     for item in items:
         key, item = item
         try:
-            entry = []
+            entries = []
             for field in fields:
-                entry.append(unicode(item[field]))
-            pp_string += u", ".join(entry).replace(u',', u' ').replace(u'\n', u' ') + u'\n'
+                entries.append(unicode(item[field]))
+            entries = [clean_csv_entry(entry) for entry in entries]
+            pp_string += u", ".join(entries) + u'\n'
         except:
             raise
             #print "# Invalid entry with id " + key
             #print "# " + json.dumps(item)
     return pp_string
 
+def clean_csv_entry(text):
+    return text.replace(u',', u' ').replace(u'\n', u' ').replace(u'\r',' ')
 
 def clean(dic):
     for item in dic.items():
@@ -34,7 +37,6 @@ def clean(dic):
             print u"missing field for entry with id " + key
             print u"# " + json.dumps(item)
             del dic[key]
-
 
 if __name__ == "__main__":
     d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
