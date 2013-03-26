@@ -5,7 +5,7 @@ import filedict
 import json
 
 def pp(items):
-    fields = ['id', 'first_name', 'last_name', 'confirmed', 'email', 'time']
+    fields = ['id', 'ip', 'first_name', 'last_name', 'email', 'confirmed', 'time', 'exkursion', 'tshirt', 'food', 'arbeitskreise', 'notes']
     pp_string = u"# " + u", ".join(fields) + u"\n"
     for item in items:
         key, item = item
@@ -13,7 +13,7 @@ def pp(items):
             entry = []
             for field in fields:
                 entry.append(unicode(item[field]))
-            pp_string += u", ".join(entry) + u'\n'
+            pp_string += u", ".join(entry).replace('\n','') + u'\n'
         except:
             raise
             #print "# Invalid entry with id " + key
@@ -38,10 +38,5 @@ def clean(dic):
 
 if __name__ == "__main__":
     d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
-    print u"\n\n"
-    print u"# ID, Vorname, Nachname, Bestaetigt, E-Mail, Anmeldezeit"
-    print pp(d.items())
-    print u"\n\n"
 
-    for item in d.items():
-        print json.dumps(item, sort_keys=True, indent=4)
+    print pp(d.items())
