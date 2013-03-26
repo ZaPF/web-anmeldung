@@ -22,6 +22,16 @@
   <label>Universität (falls nicht in Liste):</label>
   <input type="text" id="university_alt" name="university_alt">
 
+  <label>Arbeitskreis Wünsche:</label>
+  <input type="text" id="arbeitskreise" name="arbeitskreise">
+
+  <label>Exkursionswunsch:</label>
+  <select id="exkursion" name="exkursion">
+    <option value="ex1">Exkursion 1</option>
+    <option value="ex2">Exkursion 2</option>
+    <option value="ex3">Exkursion 3</option>
+  </select>
+
   <label>Ernährung:</label>
   <label class="radio">
     <input type="radio" name="food" id="fleisch" value="fleisch" checked>
@@ -33,16 +43,23 @@
   </label>
   <br />
 
-  <label>Arbeitskreis Wünsche:</label>
-  <input type="text" id="arbeitskreise" name="arbeitskreise">
+  <label>T-Shirt Größe:</label>
+  <select id="tshirt" name="tshirt">
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m" selected>M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+    <option value="xxl">XXL</option>
+    <option value="xxxl">XXXL</option>
+  </select>
 
   <label>Sonstige Wünsche:</label>
-  <input type="text" id="notes" name="notes">
+  <textarea rows="3" id="notes" name="notes"></textarea>
 
   <button type="submit" class="btn btn-large btn-success">Für ZaPF anmelden</button>
 </form>
 
-<p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>
 </div>
 
-%rebase layout title=None, additional_text=None, home=False, anmelden=True
+%rebase layout title=None, additional_text="<h4>Information</h4><p>Der Tagungsbeitrag beträgt 25€ pro Person.</p><p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>", home=False, anmelden=True

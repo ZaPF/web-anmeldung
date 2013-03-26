@@ -43,6 +43,8 @@ def login_submit():
     reg['university_alt'] = request.forms.get('university_alt').decode('utf-8')
     reg['food'] = request.forms.get('food').decode('ascii')
     reg['arbeitskreise'] = request.forms.get('arbeitskreise').decode('utf-8')
+    reg['exkursion'] = request.forms.get('exkursion').decode('utf-8')
+    reg['tshirt'] = request.forms.get('tshirt').decode('utf-8')
     reg['notes'] = request.forms.get('notes').decode('utf-8')
     if check_registrant(reg):
         reg['id'] = create_id()

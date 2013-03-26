@@ -53,9 +53,12 @@
       <div class="row-fluid marketing">
         <div class="span6">
           <center>
+          <p>
             <img src="/static/images/zapf_tu-blau_klein.png" alt="ZaPF e.V. Logo" />
+          </p>
           </center>
-          {{additional_text or ""}}
+          <br />
+          {{!additional_text or ""}}
         </div>
 
         <div class="span6">

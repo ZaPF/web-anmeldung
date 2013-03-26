@@ -28,10 +28,12 @@ def confirmation_mail(reg):
     text += u"E-Mail: {0}\n".format(reg['email'])
     text += u"Universität: {0}\n".format(unis_dict[reg['university']])
     text += u"Universität (alternativ): {0}\n".format(reg['university_alt'])
+    text += u"T-Shirt Größe: {0}\n".format(reg['tshirt'].upper())
+    text += u"Exkursion: {0}\n".format(reg['exkursion'])
     text += u"Ernährung: {0}\n".format(reg['food'])
     text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'])
     text += u"Sonstiges:\n"
-    text += u"{0}\n".format(reg['notes'])
+    text += u"{0}\n".format(reg['notes'] if reg['notes'] else " / ")
     text += u"\n"
     text += u"Vielen Dank\n"
     text += u"Dein Organisatoren-Team\n"
