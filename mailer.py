@@ -8,9 +8,10 @@ from email.utils import formataddr
 
 from data import unis_dict
 
-me_mail = u'vorstand@zapfev.de'
-me_name = u'ZaPF'
-confirmation_url_base = u'http://anmeldung.zapfev.de/confirm/%s'
+ME_EMAIL = u'vorstand@zapfev.de'
+ME_NAME = u'ZaPF Anmeldung'
+ME_REPLY_TO = 'fsr@paf.uni-jena.de'
+CONFIRMATION_URL_BASE = u'http://anmeldung.zapfev.de/confirm/%s'
 
 def confirmation_mail(reg):
     text  = u"Hallo {0} {1},\n".format(reg['first_name'], reg['last_name'])
@@ -19,7 +20,7 @@ def confirmation_mail(reg):
     text += u"\n"
     text += u"Bitte bestätige deine Anmeldung durch Aufrufen des folgenden Links:\n"
     text += u"\n"
-    text += u"%s\n" % (confirmation_url_base % reg['id'])
+    text += u"%s\n" % (CONFIRMATION_URL_BASE % reg['id'])
     text += u"\n"
     text += u"Du hast die folgenden Angaben bei der Anmeldung gemacht:\n"
     text += u"\n"
@@ -44,15 +45,15 @@ def confirmation_mail(reg):
     # Create a text/plain message
     msg = MIMEText(text.encode('UTF-8'), 'plain', 'UTF-8')
     
-    
     msg['Subject'] = 'Anmeldung zur ZaPF im SoSe 2013'
-    msg['From'] = formataddr((str(Header(me_name, 'utf-8')), me_mail))
+    msg['From'] = formataddr((str(Header(ME_NAME, 'utf-8')), ME_EMAIL))
     msg['To'] = formataddr((str(Header(reg['first_name']+' '+reg['last_name'], 'utf-8')), reg['email']))
+    msg.add_header('reply-to', ME_REPLY_TO)
     
     server = smtplib.SMTP('fachschaft.physik.uni-frankfurt.de')
     server.set_debuglevel(1)
 
-    server.sendmail(me_mail, [reg['email']], msg.as_string())
+    server.sendmail(ME_EMAIL, [reg['email']], msg.as_string())
     server.quit()
 
 if __name__ == "__main__":
