@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr
 
-from data import Unis
+from data import unis_dict
 
 me_mail = u'vorstand@zapfev.de'
 me_name = u'ZaPF'
@@ -26,7 +26,7 @@ def confirmation_mail(reg):
     text += u"Vorname: {0}\n".format(reg['first_name'])
     text += u"Nachname: {0}\n".format(reg['last_name'])
     text += u"E-Mail: {0}\n".format(reg['email'])
-    text += u"Universität: {0}\n".format(Unis[reg['university']])
+    text += u"Universität: {0}\n".format(unis_dict[reg['university']])
     text += u"Universität (alternativ): {0}\n".format(reg['university_alt'])
     text += u"Ernährung: {0}\n".format(reg['food'])
     text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'])

@@ -14,10 +14,9 @@
 
   <label>Universität:</label>
   <select id="university" name="university">
-    <option value="p-c" selected> bitte wählen </option> 
-    <option value="n-i-l"> - nicht in Liste - </option> 
-    <option value="FFM">Frankfurt am Main</option>
-    <option value="J">Jena</option>
+    %for uni in unis:
+    <option value="{{uni.acronym}}">{{uni.name}}</option>
+    %end
   </select>
 
   <label>Universität (falls nicht in Liste):</label>
