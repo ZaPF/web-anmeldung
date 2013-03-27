@@ -93,7 +93,7 @@ def login_submit():
         raise ValidationError(u'Feld Nickname fehlt.')
     try:
         reg['email'] = request.forms.get('email_addr').decode('utf-8').strip()
-        if re.match(u"^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$", reg['email']) == None:
+        if re.match(u"^[a-zA-Z0-9\.\_%\-\+]+@[a-zA-Z0-9._%-]+\.[a-zA-Z]{2,6}$", reg['email']) == None:
             raise
     except:
         error = ValidationError(u"Bitte gültige E-Mail Adresse angeben.")
