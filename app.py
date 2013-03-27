@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import route, run, static_file, post, get, request, template, response, redirect
+from bottle import route, run, static_file, post, get, request, template, response, redirect, error
 from mailer import confirmation_mail
 import filedict
 import json
@@ -155,5 +155,9 @@ def dump_json():
 def dump_csv():
     response.headers['Content-Type'] = 'text/plain; charset=UTF8'
     return pp(d.items())
+
+@error(404)
+def error404(error):
+    return template('warning', message_title="Fehler 404", message="Die aufgerufene Seite existiert nicht.")
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
