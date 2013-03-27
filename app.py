@@ -9,7 +9,7 @@ import time
 import string
 from random import choice
 from datadump import pp
-from data import unis
+from data import unis, exkursionen
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
 
@@ -29,7 +29,7 @@ def signup():
 
 @get('/anmelden')
 def signup():
-    return template('anmelden', unis=unis)
+    return template('anmelden', unis=unis, exkursionen=exkursionen)
 
 @post('/anmelden')
 def login_submit():
@@ -43,7 +43,9 @@ def login_submit():
     reg['university_alt'] = request.forms.get('university_alt').decode('utf-8')
     reg['food'] = request.forms.get('food').decode('ascii')
     reg['arbeitskreise'] = request.forms.get('arbeitskreise').decode('utf-8')
-    reg['exkursion'] = request.forms.get('exkursion').decode('utf-8')
+    reg['exkursion1'] = request.forms.get('exkursion1').decode('utf-8')
+    reg['exkursion2'] = request.forms.get('exkursion2').decode('utf-8')
+    reg['exkursion3'] = request.forms.get('exkursion3').decode('utf-8')
     reg['tshirt'] = request.forms.get('tshirt').decode('utf-8')
     reg['notes'] = request.forms.get('notes').decode('utf-8')
     if check_registrant(reg):

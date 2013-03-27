@@ -60,3 +60,22 @@ unis_dict = dict()
 for uni in unis:
     unis_dict[uni.acronym] = uni.name
 
+
+class Exkursion(object):
+    def __init__(self, title, code):
+        self.title = title
+        self.code = code
+
+exkursionen = []
+exkursionen.append(Exkursion(u" - nicht gewählt - ", u"n-g"))
+exkursionen.append(Exkursion(u"Imaginata", u"imaginata"))
+exkursionen.append(Exkursion(u"Optisches Museum", u"optisches-museum"))
+exkursionen.append(Exkursion(u"Fraunhoferinstitut und Institut für angewandte Physik", u"fraunhoferinstitut"))
+exkursionen.append(Exkursion(u"Phyletisches Museum", u"phyletisches-museum"))
+exkursionen.append(Exkursion(u"Schott GlasMuseum und Schott Villa", u"schott"))
+exkursionen.append(Exkursion(u"Stadtführung Weimar", u"stadtfuehrung"))
+
+exkursionen_dict = dict()
+for exkursion in exkursionen:
+    exkursionen_dict[exkursion.code] = exkursion.title
+

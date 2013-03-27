@@ -25,11 +25,25 @@
   <label>Arbeitskreis Wünsche:</label>
   <input type="text" id="arbeitskreise" name="arbeitskreise">
 
-  <label>Exkursionswunsch:</label>
-  <select id="exkursion" name="exkursion">
-    <option value="ex1">Exkursion 1</option>
-    <option value="ex2">Exkursion 2</option>
-    <option value="ex3">Exkursion 3</option>
+  <label>Exkursionswunsch 1:</label>
+  <select id="exkursion1" name="exkursion1">
+    %for exkursion in exkursionen:
+    <option value="{{exkursion.code}}">{{exkursion.title}}</option>
+    %end
+  </select>
+
+  <label>Exkursionswunsch 2:</label>
+  <select id="exkursion2" name="exkursion2">
+    %for exkursion in exkursionen:
+    <option value="{{exkursion.code}}">{{exkursion.title}}</option>
+    %end
+  </select>
+
+  <label>Exkursionswunsch 3:</label>
+  <select id="exkursion3" name="exkursion3">
+    %for exkursion in exkursionen:
+    <option value="{{exkursion.code}}">{{exkursion.title}}</option>
+    %end
   </select>
 
   <label>Ernährung:</label>
