@@ -11,13 +11,13 @@
 <form method="POST">
 
   <label>Vorname:</label>
-  <input type="text" id="first_name" name="first_name" value="{{registrant['first_name'] if error else ""}}" placeholder="Ruppert" required>
+  <input type="text" id="first_name" name="first_name" value="{{registrant['first_name'] if error else ""}}" placeholder="Vorname" required>
 
   <label>Nachname:</label>
-  <input type="text" id="last_name" name="last_name" value="{{registrant['last_name'] if error else ""}}" placeholder="Weinrich" required>
+  <input type="text" id="last_name" name="last_name" value="{{registrant['last_name'] if error else ""}}" placeholder="Nachname" required>
 
   <label>E-Mail Adresse:</label>
-  <input type="email" id="email_addr" name="email_addr" value="{{registrant['email'] if error else ""}}" required title="Bitte gültige E-Mail Adresse eingeben.">
+  <input type="email" id="email_addr" name="email_addr" value="{{registrant['email'] if error else ""}}" placeholder="du@deine-uni.de" required title="Bitte gültige E-Mail Adresse eingeben.">
 
   <label>Spitzname:</label>
   <input type="text" id="nick_name" name="nick_name" value="{{registrant['nick_name'] if error else ""}}" placeholder="Spitzname">
