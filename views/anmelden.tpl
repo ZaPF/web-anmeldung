@@ -47,14 +47,12 @@
   </select>
 
   <label>Ernährung:</label>
-  <label class="radio">
-    <input type="radio" name="food" id="fleisch" value="fleisch" checked>
-    Ich esse auch Fleisch.
-  </label>
-  <label class="radio">
-    <input type="radio" name="food" id="vegi" value="vegi">
-    Ich bin Vegetarier.
-  </label>
+  %for choice in essen:
+    <label class="radio">
+      <input type="radio" name="food" id="{{choice.code}}" value="{{choice.code}}" {{'checked' if choice.code == u'fleisch' else ''}}>
+      {{choice.commitment}}
+    </label>
+  %end
   <br />
 
   <label>T-Shirt Größe:</label>

@@ -9,7 +9,7 @@ import time
 import string
 from random import choice
 from datadump import pp
-from data import unis, exkursionen
+from data import unis, exkursionen, essen
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
 
@@ -29,7 +29,7 @@ def signup():
 
 @get('/anmelden')
 def signup():
-    return template('anmelden', unis=unis, exkursionen=exkursionen)
+    return template('anmelden', unis=unis, exkursionen=exkursionen, essen=essen)
 
 @post('/anmelden')
 def login_submit():

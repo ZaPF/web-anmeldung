@@ -61,6 +61,21 @@ for uni in unis:
     unis_dict[uni.acronym] = uni.name
 
 
+class Essen(object):
+    def __init__(self, title, commitment, code):
+        self.title = title
+        self.commitment = commitment
+        self.code = code
+
+essen = []
+essen.append(Essen(u"Karnivor", u"Ich esse auch Fleisch.", u"fleisch"))
+essen.append(Essen(u"Vegetarier", u"Ich bin Vegetarier.", u"vegi"))
+
+essen_dict = dict()
+for wahl in essen:
+    essen_dict[wahl.code] = wahl.commitment
+
+
 class Exkursion(object):
     def __init__(self, title, code):
         self.title = title
