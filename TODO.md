@@ -18,3 +18,7 @@
   * Soll ein automatisches Limit für die Teilnehmer-Zahl eingebaut werden? Wenn ja, wo? 200?
   * IP Check: nicht mehr als 15 Anmeldungen pro Stunde von der selben IP.
   * Check: nicht mehr als 150 Anmeldungen pro Tag
+* Repräsentation des Programmierers
+  * Auf Github öffentlich machen.
+  * Copyright entfernen und durch Link auf Github ersetzen.
+
