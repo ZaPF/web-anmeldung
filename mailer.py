@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr
 
-from data import unis_dict, exkursionen_dict, essen_dict
+from data import unis_dict, exkursionen_dict, essen_dict, tshirts_dict
 
 ME_EMAIL = u'vorstand@zapfev.de'
 ME_NAME = u'ZaPF Anmeldung'
@@ -29,7 +29,7 @@ def confirmation_mail(reg):
     text += u"E-Mail: {0}\n".format(reg['email'])
     text += u"Universität: {0}\n".format(unis_dict[reg['university']])
     text += u"Universität (alternativ): {0}\n".format(reg['university_alt'] or '-')
-    text += u"T-Shirt Größe: {0}\n".format(reg['tshirt'].upper())
+    text += u"T-Shirt Größe: {0}\n".format(tshirts_dict[reg['tshirt']])
     text += u"Exkursionswunsch 1: {0}\n".format(exkursionen_dict[reg['exkursion1']])
     text += u"Exkursionswunsch 2: {0}\n".format(exkursionen_dict[reg['exkursion2']])
     text += u"Exkursionswunsch 3: {0}\n".format(exkursionen_dict[reg['exkursion3']])

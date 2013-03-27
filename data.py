@@ -94,3 +94,28 @@ exkursionen_dict = dict()
 for exkursion in exkursionen:
     exkursionen_dict[exkursion.code] = exkursion.title
 
+class TShirt(object):
+    def __init__(self, name, code):
+        self.name = name
+        self.code = code
+
+tshirts = []
+tshirts.append(TShirt(u"Männer XS", u"XS-m"))
+tshirts.append(TShirt(u"Männer S", u"S-m"))
+tshirts.append(TShirt(u"Männer M", u"M-m"))
+tshirts.append(TShirt(u"Männer L", u"L-m"))
+tshirts.append(TShirt(u"Männer XL", u"XL-m"))
+tshirts.append(TShirt(u"Männer XXL", u"XXL-m"))
+tshirts.append(TShirt(u"Männer XXXL", u"XXXL-m"))
+tshirts.append(TShirt(u"Frauen XS", u"XS-f"))
+tshirts.append(TShirt(u"Frauen S", u"S-f"))
+tshirts.append(TShirt(u"Frauen M", u"M-f"))
+tshirts.append(TShirt(u"Frauen L", u"L-f"))
+tshirts.append(TShirt(u"Frauen XL", u"XL-f"))
+tshirts.append(TShirt(u"Frauen XXL", u"XXL-f"))
+tshirts.append(TShirt(u"Frauen XXXL", u"XXXL-f"))
+
+tshirts_dict = dict()
+for tshirt in tshirts:
+    tshirts_dict[tshirt.code] = tshirt.name
+

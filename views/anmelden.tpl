@@ -57,13 +57,9 @@
 
   <label>T-Shirt Größe:</label>
   <select id="tshirt" name="tshirt">
-    <option value="xs">XS</option>
-    <option value="s">S</option>
-    <option value="m" selected>M</option>
-    <option value="l">L</option>
-    <option value="xl">XL</option>
-    <option value="xxl">XXL</option>
-    <option value="xxxl">XXXL</option>
+    %for tshirt in tshirts:
+        <option value="{{tshirt.code}}" {{'selected' if tshirt.code == u'M-m' else ''}}>{{tshirt.name}}</option>
+    %end
   </select>
 
   <label>Sonstige Wünsche:</label>
