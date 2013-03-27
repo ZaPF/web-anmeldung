@@ -2,7 +2,9 @@
 
 * Robustheit und Fehler-Nachverfolgung
   * Webserver automatisch starten, wenn Server rebootet
-  * Log der Aufrufe (mit der X-Forwarded-For IP) einrichten
+  * Log der Aufrufe (mit der X-Forwarded-For IP) einrichten  
+    <https://github.com/defnull/bottle/blob/master/bottle.py#L2498>  
+    <https://github.com/django/django/blob/master/django/core/servers/basehttp.py#L140>
 * Funktion und Komfort für die Nutzer
   * Anmelde-Erfolgsseite: Button "weitere Teilnehmer anmelden"
   * Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer; Teilnehmer je Universität;  oder  Vornamen, nach Universität gegliedert?
