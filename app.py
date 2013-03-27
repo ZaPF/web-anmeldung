@@ -130,6 +130,7 @@ def unknown_id():
 
 @get('/confirm/<id:re:[a-zA-Z0-9]+>')
 def confirm(id):
+    time.sleep(2.)
     try:
         reg = d[id]
     except:
