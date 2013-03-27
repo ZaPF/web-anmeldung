@@ -162,5 +162,6 @@ def error404(error):
     return template('warning', message_title="Fehler 404", message="Die aufgerufene Seite existiert nicht.")
 
 #run(host='0.0.0.0', port=8080, debug=True, reloader=True)
-run(host='0.0.0.0', server=PasteServer, port=8080)
+run(host='0.0.0.0', port=8080)
+#run(host='0.0.0.0', server=PasteServer, port=8080)
 
