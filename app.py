@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import route, run, static_file, post, get, request, template, response, redirect, error, PasteServer
+from bottle import route, run, static_file, post, get, request, template, response, redirect, error
 from mailer import confirmation_mail
 import filedict
 import json
