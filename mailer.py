@@ -34,9 +34,9 @@ def confirmation_mail(reg):
     text += u"Exkursionswunsch 2: {0}\n".format(exkursionen_dict[reg['exkursion2']])
     text += u"Exkursionswunsch 3: {0}\n".format(exkursionen_dict[reg['exkursion3']])
     text += u"Ernährung: {0}\n".format(essen_dict[reg['food']])
-    text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'])
-    text += u"Sonstiges:\n"
-    text += u"{0}\n".format(reg['notes'] if reg['notes'] else " - keine Angabe - ")
+    text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'] or "-")
+    text += u"Sonstiges:"
+    text += u"\n{0}\n".format(reg['notes']) if reg['notes'] else u" -\n"
     text += u"\n"
     text += u"Vielen Dank\n"
     text += u"Dein Organisatoren-Team\n"
