@@ -22,4 +22,6 @@
 * Repräsentation des Programmierers
   * Auf Github öffentlich machen.
   * Copyright entfernen und durch Link auf Github ersetzen.
+* Spaß
+  * Platzhalter in HTML-Formular mit zufälligen bekannten Physikern füllen
 
