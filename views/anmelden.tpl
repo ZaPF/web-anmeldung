@@ -19,6 +19,9 @@
   <label>E-Mail Adresse:</label>
   <input type="email" id="email_addr" name="email_addr" value="{{registrant['email'] if error else ""}}" required title="Bitte gültige E-Mail Adresse eingeben.">
 
+  <label>Spitzname:</label>
+  <input type="text" id="nick_name" name="nick_name" value="{{registrant['nick_name'] if error else ""}}" placeholder="Spitzname">
+
   <label>Universität:</label>
   <select id="university" name="university">
     %for uni in unis:

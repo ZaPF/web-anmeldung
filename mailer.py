@@ -27,6 +27,7 @@ def confirmation_mail(reg):
     text += u"Vorname: {0}\n".format(reg['first_name'])
     text += u"Nachname: {0}\n".format(reg['last_name'])
     text += u"E-Mail: {0}\n".format(reg['email'])
+    text += u"Spitzname: {0}\n".format(reg['nick_name'] or '-')
     text += u"Universität: {0}\n".format(unis_dict[reg['university']])
     text += u"Universität (alternativ): {0}\n".format(reg['university_alt'] or '-')
     text += u"T-Shirt Größe: {0}\n".format(tshirts_dict[reg['tshirt']])

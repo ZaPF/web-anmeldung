@@ -47,6 +47,7 @@ def login_submit():
     reg['arbeitskreise'] = u""
     reg['university_alt'] = u""
     reg['university'] = u""
+    reg['nick_name'] = u""
     reg['email'] = u""
     reg['last_name'] = u""
     reg['first_name'] = u""
@@ -84,6 +85,10 @@ def login_submit():
         raise ValidationError(u'Universität nicht ordentlich angegeben.')
     if not (reg['university'] == u'n-i-l' or reg['university'] == u'b-w') and reg['university_alt']:
         error = ValidationError(u'Bitte entweder Universität aus Liste auswählen oder sie selbst in das Textfeld eingeben') 
+    try:
+        reg['nick_name'] = request.forms.get('nick_name').decode('utf-8').strip()
+    except:
+        raise ValidationError(u'Feld Nickname fehlt.')
     try:
         reg['email'] = request.forms.get('email_addr').decode('utf-8').strip()
         if re.match(u"^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$", reg['email']) == None:

@@ -5,7 +5,7 @@ import filedict
 import json
 
 def pp(items):
-    fields = ['id', 'ip', 'first_name', 'last_name', 'email', 'confirmed', 'time', 'exkursion1', 'exkursion2', 'exkursion3', 'tshirt', 'food', 'arbeitskreise', 'notes']
+    fields = ['id', 'ip', 'first_name', 'last_name', 'email', 'nick_name', 'confirmed', 'time', 'exkursion1', 'exkursion2', 'exkursion3', 'tshirt', 'food', 'arbeitskreise', 'notes']
     pp_string = u"# " + u", ".join(fields) + u"\n"
     for item in items:
         key, item = item
