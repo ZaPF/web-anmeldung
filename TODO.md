@@ -3,6 +3,7 @@
 * Bugs beheben
   * Check E-Mail Adresse & Test, was passiert, wenn E-Mail unzustellbar
 * Robustheit und Fehler-Nachverfolgung
+  * Webserver automatisch starten, wenn Server rebootet
   * Fehler Log für die auf der Website auftretenden Fehler organisieren
   * Emails loggen in extra DB
 * Funktion und Komfort für die Nutzer
