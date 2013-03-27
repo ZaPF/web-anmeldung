@@ -14,6 +14,8 @@ import re
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
 
+a_p_i = filedict.FileDict(filename="data/anmeldungen-pro-ip.dict.sqlite")
+
 def check_registrant(reg):
     #return validate_email(reg['email'])
     return True
@@ -105,6 +107,13 @@ def login_submit():
         if reg['first_name'] == u'': raise
     except:
         error = ValidationError(u'Bitte Vornamen angeben')
+    try:
+        a_p_i[request.remote_route[0]]
+    except:
+        a_p_i[request.remote_route[0]] = 0
+    a_p_i[request.remote_route[0]] += 1
+    if a_p_i[request.remote_route[0]] > 2:
+        error = ValidationError(u"Nicht mehr als 15 Anmeldungen pro IP Adresse erlaubt!")
     if error:
         return template('anmelden', unis=unis, exkursionen=exkursionen, essen=essen, tshirts=tshirts, registrant=reg, error=error.message)
     # set up less critical parameters
