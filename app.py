@@ -8,7 +8,7 @@ import json
 import time
 import string
 from random import choice
-from datadump import pp
+from datadump import pp, registrants_by_university
 from data import unis, exkursionen, essen, tshirts, exkursionen_dict, essen_dict, tshirts_dict, unis_dict
 import re
 from hacks import CustomWSGIRefServer
@@ -157,6 +157,9 @@ def confirm(id):
 def callback(path):
     return static_file(path, root='./static')
 
+@get('/anmeldungen')
+def anmeldungen():
+    return template('participants', rbu=registrants_by_university(d.items()))
 
 @get('/liste/json')
 def dump_json():
