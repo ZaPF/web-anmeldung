@@ -14,4 +14,4 @@
         </div>
       </div>
 
-%rebase base title=title, home=home, anmelden=anmelden
+%rebase base title=title, additional_text=additional_text, home=home, anmelden=anmelden

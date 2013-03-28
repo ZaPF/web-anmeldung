@@ -80,4 +80,4 @@
 
 </div>
 
-%rebase layout title=None, additional_text="<h4>Information</h4><p>Der Tagungsbeitrag beträgt 25€ pro Person.</p><p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>", home=False, anmelden=True
+%rebase layout title="Jetzt anmelden", additional_text="<h4>Information</h4><p>Der Tagungsbeitrag beträgt 25€ pro Person.</p><p>Nach der Anmeldung ist noch eine<br />Bestätigung per E-Mail notwendig.</p>", home=False, anmelden=True

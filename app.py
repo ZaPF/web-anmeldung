@@ -133,7 +133,7 @@ def login_submit():
 
 @get('/anmeldung/erfolgreich')
 def success():
-    return template('info', message_title="Anmeldungs-Bestätigung", alert="Anmeldung erfolgt.", message="Jetzt bitte E-Mails checken und die Anmeldung bestätigen!")
+    return template('info', message_title="Anmeldung erfolgreich", alert="Anmeldung erfolgreich abgeschlossen.", message="Jetzt bitte E-Mails checken und die Anmeldung bestätigen!")
 
 @get('/anmeldung/unbekannt')
 def unknown_id():

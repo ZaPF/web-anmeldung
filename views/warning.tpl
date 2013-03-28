@@ -4,4 +4,4 @@
 {{message}}
 </div>
 
-%rebase layout title=None, additional_text=None, home=False, anmelden=False
+%rebase layout title=u'Achtung', additional_text=None, home=False, anmelden=False
