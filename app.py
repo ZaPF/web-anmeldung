@@ -56,56 +56,56 @@ def login_submit():
     reg['last_name'] = u""
     reg['first_name'] = u""
     try:
-        reg['notes'] = request.forms.get('notes').decode('utf-8').strip()
+        reg['notes'] = request.forms.getunicode('notes').strip()
     except:
         error = ValidationError(u'Fehler mit dem Feld Sonstige Wünsche.')
     try:
-        reg['tshirt'] = request.forms.get('tshirt').decode('utf-8').strip()
+        reg['tshirt'] = request.forms.getunicode('tshirt').strip()
         tshirts_dict[reg['tshirt']]
     except:
         error = ValidationError("Bitte T-Shirt korrekt angeben.")
     try:
-        reg['food'] = request.forms.get('food').decode('ascii').strip()
+        reg['food'] = request.forms.getunicode('food').strip()
     except:
         error = ValidationError(u'Bitte eine Wahl für das Essen treffen.')
     try:
-        reg['exkursion3'] = request.forms.get('exkursion3').decode('utf-8').strip()
-        reg['exkursion2'] = request.forms.get('exkursion2').decode('utf-8').strip()
-        reg['exkursion1'] = request.forms.get('exkursion1').decode('utf-8').strip()
+        reg['exkursion3'] = request.forms.getunicode('exkursion3').strip()
+        reg['exkursion2'] = request.forms.getunicode('exkursion2').strip()
+        reg['exkursion1'] = request.forms.getunicode('exkursion1').strip()
         exkursionen_dict[reg['exkursion1']] and exkursionen_dict[reg['exkursion2']] and exkursionen_dict[reg['exkursion3']]
     except:
         error = ValidationError(u"Exkursionen nicht ordentlich angegeben.")
     try:
-        reg['arbeitskreise'] = request.forms.get('arbeitskreise').decode('utf-8').strip()
+        reg['arbeitskreise'] = request.forms.getunicode('arbeitskreise').strip()
     except:
         raise ValidationError(u'Arbeitskreise nicht ordentlich angegeben.')
     try:
-        reg['university_alt'] = request.forms.get('university_alt').decode('utf-8').strip()
+        reg['university_alt'] = request.forms.getunicode('university_alt').strip()
     except:
         raise ValidationError(u'Alternative Universität nicht ordentlich angegeben.')
     try:
-        reg['university'] = request.forms.get('university').decode('utf-8').strip()
+        reg['university'] = request.forms.getunicode('university').strip()
     except:
         raise ValidationError(u'Universität nicht ordentlich angegeben.')
     if not (reg['university'] == u'n-i-l' or reg['university'] == u'b-w') and reg['university_alt']:
         error = ValidationError(u'Bitte entweder Universität aus Liste auswählen oder sie selbst in das Textfeld eingeben') 
     try:
-        reg['nick_name'] = request.forms.get('nick_name').decode('utf-8').strip()
+        reg['nick_name'] = request.forms.getunicode('nick_name').strip()
     except:
         raise ValidationError(u'Feld Nickname fehlt.')
     try:
-        reg['email'] = request.forms.get('email_addr').decode('utf-8').strip()
+        reg['email'] = request.forms.getunicode('email_addr').strip()
         if re.match(u"^[a-zA-Z0-9\.\_%\-\+]+@[a-zA-Z0-9._%-]+\.[a-zA-Z]{2,6}$", reg['email']) == None:
             raise
     except:
         error = ValidationError(u"Bitte gültige E-Mail Adresse angeben.")
     try:
-        reg['last_name'] = request.forms.get('last_name').decode('utf-8').strip().title()
+        reg['last_name'] = request.forms.getunicode('last_name').strip().title()
         if reg['last_name'] == u'': raise
     except:
         raise ValidationError(u'Bitte Nachnamen angeben')
     try:
-        reg['first_name'] = request.forms.get('first_name').decode('utf-8').strip().title()
+        reg['first_name'] = request.forms.getunicode('first_name').strip().title()
         if reg['first_name'] == u'': raise
     except:
         error = ValidationError(u'Bitte Vornamen angeben')
