@@ -51,7 +51,7 @@ def confirmation_mail(reg):
     msg['Subject'] = 'Anmeldung zur ZaPF im SoSe 2013'
     msg['From'] = formataddr((str(Header(ME_NAME, 'utf-8')), ME_EMAIL))
     msg['To'] = formataddr((str(Header(reg['first_name']+' '+reg['last_name'], 'utf-8')), reg['email']))
-    msg.add_header('reply-to', ME_REPLY_TO)
+    msg.add_header('Reply-To', ME_REPLY_TO)
     
     server = smtplib.SMTP('fachschaft.physik.uni-frankfurt.de')
     server.set_debuglevel(1)
