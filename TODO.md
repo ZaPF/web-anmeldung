@@ -4,9 +4,8 @@
   * Webserver automatisch starten, wenn Server rebootet
 * Funktion und Komfort für die Nutzer
   * Anmelde-Erfolgsseite: Button "weitere Teilnehmer anmelden"
-  * Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer; Teilnehmer je Universität;  oder  Vornamen, nach Universität gegliedert?
+  * Sollen auch für die Allgemeinheit noch Statistik bereitgestellt werden? Etwa Summe gemeldeter Teilnehmer?
   * Soll noch mehr Hinweis-Text auf die Seite? Etwa zu Teilnehmergebühren o.ä.?
-  * Feld für Teilzeitteilnehmern? So etwas wie die Checkbox "Alter Sack"? Oder ein textueller Hinweis, das unter Sonstiges reinzuschreiben?
 * Funktion für die Orga
   * Extra-Liste: Personen mit Sonderwünschen
 * Sicherheit
