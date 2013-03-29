@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{title + ' | ZaPF SoSe 2013 Jena' if title else 'ZaPF 2013 in Jena'}}</title>
+    <title>{{title + ' | ZaPF in Jena: SoSe 2013' if title else 'ZaPF in Jena: SoSe 2013'}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
