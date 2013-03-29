@@ -1,4 +1,5 @@
-          <h4>Teilnehmer nach Universitäten</h4>
+          <h4>TeilnehmerInnen nach Universitäten</h4>
+          <p>Bisher gemeldete TeilnehmerInnen: {{sum([len(uni) for uni in rbu.values()])}}</p>
           <ul>
               %for uni in rbu.keys():
               <li>{{uni}}</li>
