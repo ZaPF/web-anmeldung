@@ -13,4 +13,4 @@ def callback(path):
 def wartung(url=None):
     return template('warning', message_title=None, message="Die Anmeldung zur ZaPF 2013 wird gerade gewartet. Bitte versuchen Sie es in Kuerze noch einmal.")
 
-run(host='0.0.0.0', server=CustomWSGIRefServer(), port=8080, debug=True)
+run(host='0.0.0.0', server=CustomWSGIRefServer, port=8080)
