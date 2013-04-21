@@ -13,6 +13,8 @@
   * Soll ein automatisches Limit für die Teilnehmer-Zahl eingebaut werden? Wenn ja, wo? 200?
   * Check: nicht mehr als 150 Anmeldungen pro Tag
   * E-Mail-Versand nach Freischaltung durch den Admin
+  * robots.txt einbauen, um Zugriff von Suchmaschinen Robots auf die API zu verweigern
+  * API Passwort-Schützen
 * Repräsentation des Programmierers
   * Auf Github öffentlich machen.
   * Copyright entfernen und durch Link auf Github ersetzen.
