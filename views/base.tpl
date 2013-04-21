@@ -32,7 +32,9 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li {{!'class="active"' if home else ''}}><a href="/">Home</a></li>
+          %if not get('closed', True):
           <li {{!'class="active"' if anmelden else ''}}><a href="/anmelden">Jetzt anmelden</a></li>
+          %end
           <li><a href="http://www.zapf.uni-jena.de/" target="_blank">Mehr erfahren</a></li>
           <li><a href="http://www.fsr.uni-jena.de/index.php?option=com_contact&view=contact&id=4&Itemid=65&lang=de" target="_blank">Kontakt</a></li>
         </ul>

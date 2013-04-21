@@ -15,6 +15,8 @@ from hacks import CustomWSGIRefServer
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
 
+CLOSED = True
+
 a_p_i = filedict.FileDict(filename="data/anmeldungen-pro-ip.dict.sqlite")
 MAX_PER_IP = 15
 
@@ -29,18 +31,24 @@ def unixtime():
     return int(time.time())
 
 @get('/')
-def signup():
-    return template('home')
+def home():
+    return template('home', closed=CLOSED)
 
 @get('/anmelden')
 def signup():
+    if CLOSED:
+        redirect('/')
+        return
     return template('anmelden', unis=unis, exkursionen=exkursionen, essen=essen, tshirts=tshirts, error=None)
 
 class ValidationError(NameError):
     pass
 
 @post('/anmelden')
-def login_submit():
+def signup_submit():
+    if CLOSED:
+        redirect('/')
+        return
     reg = dict() # we store the registrant's details in a dictionary
     error = None
     # parse and validate user input
