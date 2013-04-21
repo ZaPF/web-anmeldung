@@ -165,6 +165,11 @@ def confirm(id):
 def callback(path):
     return static_file(path, root='./static')
 
+@route('/:filename#favicon\.ico|robots\.txt#')
+def send_special(filename):
+    if filename == 'favicon.ico': filename = 'images/zapf_favicon.ico'
+    return static_file(filename, root='./static')
+
 @get('/anmeldungen')
 def anmeldungen():
     return template('participants', rbu=registrants_by_university(d.items()))

@@ -1,0 +1,5 @@
+# Alle Robots ausschließen
+User-agent: *
+Disallow: /liste
+Disallow: /anmeldungen
+
