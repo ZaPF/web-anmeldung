@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from bottle import route, run, static_file, post, get, request, template, response, redirect, error
+from bottle import route, run, static_file, post, get, request, template, response, redirect, error, abort
 from mailer import confirmation_mail
 import filedict
 import json
@@ -12,10 +12,12 @@ from datadump import pp, registrants_by_university
 from data import unis, exkursionen, essen, tshirts, exkursionen_dict, essen_dict, tshirts_dict, unis_dict
 import re
 from hacks import CustomWSGIRefServer
+import argparse
 
 d = filedict.FileDict(filename="data/anmeldungen.dict.sqlite")
 
-CLOSED = True
+CLOSED = False
+PASSWORD = ""
 
 a_p_i = filedict.FileDict(filename="data/anmeldungen-pro-ip.dict.sqlite")
 MAX_PER_IP = 15
@@ -176,19 +178,48 @@ def anmeldungen():
 
 @get('/liste/json')
 def dump_json():
+    if not request.GET.get('password', '').strip() == PASSWORD:
+        abort(403, 'not allowed')
     response.headers['Content-Type'] = 'text/plain; charset=UTF8'
     return json.dumps(list(d.items()), sort_keys=True, indent=2)
 
 @get('/liste/csv')
 def dump_csv():
+    if not request.GET.get('password', '').strip() == PASSWORD:
+        abort(403, 'not allowed')
     response.headers['Content-Type'] = 'text/plain; charset=UTF8'
     return pp(d.items())
+
+@error(403)
+def error404(error):
+    return template('warning', message_title="Fehler 403", message="Nicht erlaubt.")
 
 @error(404)
 def error404(error):
     return template('warning', message_title="Fehler 404", message="Die aufgerufene Seite existiert nicht.")
 
-#run(host='0.0.0.0', server=CustomWSGIRefServer(), port=8080, debug=True, reloader=True)
-run(host='0.0.0.0', server=CustomWSGIRefServer, port=8080)
-#run(host='0.0.0.0', server=PasteServer, port=8080)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+      description='Start a server to store location information.' )
+    parser.add_argument('-s', '--password',
+      help='The password needed to access the data.')
+    parser.add_argument('-p', '--port', type=int, default=8080,
+      help='The port to run the web server on.')
+    parser.add_argument('-c', '--closed', action='store_true',
+      help='Registration is closed.')
+    parser.add_argument('-d', '--debug', action='store_true',
+      help='Start in debug mode (with verbose HTTP error pages.')
+    args = parser.parse_args()
+    if args.closed:
+        CLOSED = True
+    if args.password:
+        PASSWORD = args.password
+    else:
+        PASSWORD = create_id(50)
+    print "Password for the data URLs: " + PASSWORD
+    if args.debug:
+        run(host='0.0.0.0', server=CustomWSGIRefServer, port=args.port, debug=True, reloader=True)
+    else:
+        run(host='0.0.0.0', server=CustomWSGIRefServer, port=args.port)
 
