@@ -55,7 +55,7 @@
       <hr>
 
       <div class="footer">
-        <p>&copy; Die ZaPF 2013</p>
+        <p>&copy; Die ZaPF 2013      |     <a href="https://github.com/ZaPF/web-anmeldung">ZaPF Web-Anmeldungs Projekt auf Github</a></p>
       </div>
 
     </div> <!-- /container -->
