@@ -9,6 +9,7 @@ from email.charset import add_charset, QP
 
 from data import unis_dict, exkursionen_dict, essen_dict, tshirts_dict
 
+ME_MAILSERVER = 'fachschaft.physik.uni-frankfurt.de'
 ME_EMAIL = 'vorstand@zapfev.de'
 ME_NAME = 'ZaPF Anmeldung'
 ME_REPLY_TO = 'fsr@paf.uni-jena.de'
@@ -24,20 +25,20 @@ def confirmation_mail(reg):
     fields['arbeitskreise'] = reg['arbeitskreise'] or '-'
     fields['notes'] = reg['notes'] or ' -\n'
     text = open('MAIL_TEXT.tpl').read().format(**fields)
-    
+
     # Create a text/plain message
     add_charset('utf-8', QP, QP, 'utf-8')
     msg = MIMEText(text, _charset='utf-8')
-    
+
     msg['Subject'] = 'Anmeldung zur ZaPF im SoSe 2013'
     msg['From'] = formataddr((str(Header(ME_NAME, 'utf-8')), ME_EMAIL))
     msg['To'] = formataddr((str(Header(reg['first_name']+' '+reg['last_name'], 'utf-8')), reg['email']))
     msg.add_header('Reply-To', ME_REPLY_TO)
-    
-    server = smtplib.SMTP('fachschaft.physik.uni-frankfurt.de')
+
+    server = smtplib.SMTP(ME_MAILSERVER)
     server.set_debuglevel(1)
 
-    server.sendmail(ME_EMAIL, [reg['email']], msg.as_string())
+    server.send_message(msg)
     server.quit()
 
 if __name__ == "__main__":
