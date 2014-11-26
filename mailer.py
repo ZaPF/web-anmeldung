@@ -5,6 +5,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr
+from email.charset import add_charset, QP
 
 from data import unis_dict, exkursionen_dict, essen_dict, tshirts_dict
 
@@ -25,7 +26,8 @@ def confirmation_mail(reg):
     text = open('MAIL_TEXT.tpl').read().format(**fields)
     
     # Create a text/plain message
-    msg = MIMEText(text.encode('UTF-8'), 'plain', 'UTF-8')
+    add_charset('utf-8', QP, QP, 'utf-8')
+    msg = MIMEText(text, _charset='utf-8')
     
     msg['Subject'] = 'Anmeldung zur ZaPF im SoSe 2013'
     msg['From'] = formataddr((str(Header(ME_NAME, 'utf-8')), ME_EMAIL))
