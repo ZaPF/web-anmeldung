@@ -8,42 +8,21 @@ from email.utils import formataddr
 
 from data import unis_dict, exkursionen_dict, essen_dict, tshirts_dict
 
-ME_EMAIL = u'vorstand@zapfev.de'
-ME_NAME = u'ZaPF Anmeldung'
+ME_EMAIL = 'vorstand@zapfev.de'
+ME_NAME = 'ZaPF Anmeldung'
 ME_REPLY_TO = 'fsr@paf.uni-jena.de'
-CONFIRMATION_URL_BASE = u'http://anmeldung.zapfev.de/confirm/%s'
+CONFIRMATION_URL_BASE = 'http://anmeldung.zapfev.de/confirm/%s'
 
 def confirmation_mail(reg):
-    text  = u"Hallo {0} {1},\n".format(reg['first_name'], reg['last_name'])
-    text += u"\n"
-    text += u"soeben hast du dich für die ZaPF angemeldet.\n"
-    text += u"\n"
-    text += u"Bitte bestätige deine Anmeldung durch Aufrufen des folgenden Links:\n"
-    text += u"\n"
-    text += u"%s\n" % (CONFIRMATION_URL_BASE % reg['id'])
-    text += u"\n"
-    text += u"Du hast die folgenden Angaben bei der Anmeldung gemacht:\n"
-    text += u"\n"
-    text += u"Vorname: {0}\n".format(reg['first_name'])
-    text += u"Nachname: {0}\n".format(reg['last_name'])
-    text += u"E-Mail: {0}\n".format(reg['email'])
-    text += u"Spitzname: {0}\n".format(reg['nick_name'] or '-')
-    text += u"Universität: {0}\n".format(unis_dict[reg['university']])
-    text += u"Universität (alternativ): {0}\n".format(reg['university_alt'] or '-')
-    text += u"T-Shirt Größe: {0}\n".format(tshirts_dict[reg['tshirt']])
-    text += u"Exkursionswunsch 1: {0}\n".format(exkursionen_dict[reg['exkursion1']])
-    text += u"Exkursionswunsch 2: {0}\n".format(exkursionen_dict[reg['exkursion2']])
-    text += u"Exkursionswunsch 3: {0}\n".format(exkursionen_dict[reg['exkursion3']])
-    text += u"Ernährung: {0}\n".format(essen_dict[reg['food']])
-    text += u"AK-Wünsche: {0}\n".format(reg['arbeitskreise'] or "-")
-    text += u"Sonstiges:"
-    text += u"\n{0}\n".format(reg['notes']) if reg['notes'] else u" -\n"
-    text += u"\n"
-    text += u"Vielen Dank\n"
-    text += u"Dein Organisatoren-Team\n"
-    text += u"\n"
-    text += u"______________________________\n"
-    text += u"http://www.zapf.uni-jena.de\n"
+    fields = dict()
+    fields.update(reg)
+    fields['confirmation_url'] = CONFIRMATION_URL_BASE % reg['id']
+    fields['nick_name'] = reg['nick_name'] or '-'
+    fields['university_alt'] = reg['university_alt'] or '-'
+    fields['food'] = essen_dict[reg['food']]
+    fields['arbeitskreise'] = reg['arbeitskreise'] or '-'
+    fields['notes'] = reg['notes'] or ' -\n'
+    text = open('MAIL_TEXT.tpl').read().format(**fields)
     
     # Create a text/plain message
     msg = MIMEText(text.encode('UTF-8'), 'plain', 'UTF-8')
@@ -60,8 +39,19 @@ def confirmation_mail(reg):
     server.quit()
 
 if __name__ == "__main__":
-    test_reg = Registrant()
-    test_reg.vorname = 'Philipp'
-    test_reg.nachname = 'Klaus'
-    test_reg.email = 'philipp.klaus@gmail.com'
+    test_reg = dict()
+    test_reg['id'] = 'pElBQ6XK'
+    test_reg['first_name'] = 'Max'
+    test_reg['last_name'] = 'Mustermann'
+    test_reg['email'] = 'max@example.com'
+    test_reg['nick_name'] = ''
+    test_reg['university'] = 'MIT Cambridge, MA'
+    test_reg['university_alt'] = ''
+    test_reg['tshirt'] = 'M-m'
+    test_reg['exkursion1'] = 'imaginata'
+    test_reg['exkursion2'] = 'optisches-museum'
+    test_reg['exkursion3'] = 'fraunhoferinstitut'
+    test_reg['food'] = 'fleisch'
+    test_reg['arbeitskreise'] = 'AK Sauna, AK Brotzeit'
+    test_reg['notes'] = ''
     confirmation_mail(test_reg)
